@@ -55,3 +55,18 @@ a {
   padding: 1rem;
   background-color: #f4a719;
 }
+
+.shop-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: 20px 0;
+  transition: background-color 0.3s ease;
+}
+
+.shop-button:hover {
+  background-color: #7ba4f0;
+}
