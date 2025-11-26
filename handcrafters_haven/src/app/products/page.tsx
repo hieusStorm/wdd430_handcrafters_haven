@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { supabase } from "../../lib/supabaseClient";
 import ProductFilters from "../components/ProductFilters";
+import AddCartButton from "../components/addCartButton";
 // Fetch products from Supabase
 async function getProducts() {
   const { data, error } = await supabase.from("products").select("*");
@@ -40,6 +41,7 @@ export default async function Products() {
               )}
               <h3>{p.description}</h3>
               <p>Price: ${p.price}</p>
+              <AddCartButton value={p.name}/>
             </div>
           ))
         ) : (
