@@ -1,5 +1,5 @@
 "use client";
-export default function addCartButton(props) {
+export default function AddCartButton(props: { value: string }) {
     const {value} = props;
     
     // add event listener for the button and add item to carts

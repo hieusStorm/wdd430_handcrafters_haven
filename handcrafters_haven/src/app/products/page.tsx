@@ -6,7 +6,7 @@ import AddCartButton from "../components/AddCartButton";
 import { useEffect, useState } from "react";
 
 export default function Products() {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<any[]>([]);
     const [filters, setFilters] = useState({
       search: "",
       minPrice: "",
