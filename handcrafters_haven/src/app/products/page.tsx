@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { supabase } from "../../lib/supabaseClient";
 import ProductFilters from "../components/ProductFilters";
@@ -18,16 +19,18 @@ export default async function Products() {
             <h1>Artisian Name</h1>
             <div className="product_card">
                 <h2>Product Name</h2>
-                <Image src={""} alt={"Product picture"}/>
+                <Image src="/placeholder.png" alt={"Product picture"} width={300}
+  height={200}/>
                 <h3>description</h3>
                 <p>...</p>
                 <p>Price: $</p>
             </div>
 
-             {/* Product filters */}
+            {/* Filters */}
       <h2>Filter Products</h2>
-      <ProductFilters />
-            {/* a new display for all products from Supabase */}
+      <ProductFilters filters={filters} setFilters={setFilters} />
+
+      {/* Display filtered products */}
       <h2>All Products</h2>
       <div style={{ display: "flex", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}>
         {products.length > 0 ? (

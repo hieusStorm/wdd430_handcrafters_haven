@@ -5,13 +5,16 @@ import Link from "next/link";
 import { supabase } from '../lib/supabaseClient';
 // Fetch products from Supabase
 async function getProducts() {
-  const { data, error } = await supabase.from('products').select('*');
+  const { data, error } = await supabase.from("products").select("*");
+
   if (error) {
-    console.error(error);
-    return [];
+    console.log("Supabase error:", error.message);
+    return []; // avoid crashing the page
   }
-  return data;
+
+  return data ?? [];
 }
+
 
  export default async function Home() {
   const products = await getProducts();
