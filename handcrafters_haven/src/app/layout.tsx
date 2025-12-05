@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
        className={`${geistSans.variable} ${geistMono.variable}`}>
         <header>
-          <img src="/hh.png" alt="Handcrafter's Haven Logo" />
+          <img src="/hh.PNG" alt="Handcrafter's Haven Logo" />
           <h1>Handcrafter's Haven</h1>
           <nav>
             <a href="/">Home</a>
