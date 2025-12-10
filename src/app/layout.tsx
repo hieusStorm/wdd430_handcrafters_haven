@@ -29,18 +29,17 @@ export default function RootLayout({
       <body
        className={`${geistSans.variable} ${geistMono.variable}`}>
         <header>
-          <img src="/logo.png" alt="Handcrafter's Haven Logo" />
+          <img src="/hh.PNG" alt="Handcrafter's Haven Logo" />
           <h1>Handcrafter's Haven</h1>
           <nav>
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/products">Products</a>
-            <a href="/contact">Contact</a>
+            <a href="/" className="button">Home</a>
+            <a href="/about" className="button">About Us</a>
+            <a href="/products" className="button">Products</a>
+            <a href="/contact" className="button">Contact</a>
+            <a href="/account" className="button">Account</a>
           </nav>
         </header>
-        <main>
         {children}
-        </main>
       <footer>
         <p>© 2025 Handcrafter's Haven. This is a school website.</p>
       </footer>

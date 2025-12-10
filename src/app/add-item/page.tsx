@@ -9,7 +9,6 @@ export default function AddItem() {
     description: "",
     price: "",
     image: "",
-    category: "", // <-- Added category
   });
 
   const [message, setMessage] = useState("");
@@ -24,7 +23,6 @@ export default function AddItem() {
         description: item.description,
         price: Number(item.price),
         image: item.image,
-        category: item.category, // <-- include category in insert
       },
     ]);
 
@@ -33,7 +31,7 @@ export default function AddItem() {
       setMessage("Error adding item: " + error.message);
     } else {
       setMessage("Item added successfully!");
-      setItem({ name: "", description: "", price: "", image: "", category: "" });
+      setItem({ name: "", description: "", price: "", image: "" });
     }
   }
 
@@ -41,10 +39,8 @@ export default function AddItem() {
     <div style={{ padding: "20px" }}>
       <h1>Add New Item</h1>
 
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column", gap: "10px", width: "300px" }}
-      >
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", width: "300px" }}>
+        
         <input
           type="text"
           placeholder="Item name"
@@ -73,14 +69,6 @@ export default function AddItem() {
           placeholder="Image URL (ex: /earring1.avif)"
           value={item.image}
           onChange={(e) => setItem({ ...item, image: e.target.value })}
-          required
-        />
-
-        <input
-          type="text"
-          placeholder="Category"
-          value={item.category}
-          onChange={(e) => setItem({ ...item, category: e.target.value })}
           required
         />
 
