@@ -43,5 +43,3 @@ export default function AccountPage() {
   return <AuthForm onAuthSuccess={(userData) => setUser(userData)} />;
 }
 
-
-

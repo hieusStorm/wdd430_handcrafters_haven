@@ -48,6 +48,15 @@ export default function AccountInfo({ user }: AccountInfoProps) {
       window.location.reload();
     }, 500);
   };
+  // Delete an item
+  const deleteItem = async (id: number) => {
+    const { error } = await supabase.from("items").delete().eq("id", id);
+    if (error) {
+      console.error("Error deleting item:", error.message);
+    } else {
+      setItems(items.filter((item) => item.id !== id));
+    }
+  };
 
   return (
     <div className="account_container">
