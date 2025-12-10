@@ -60,16 +60,7 @@ export default function Products() {
 
   return (
     <main style={{ padding: "20px" }}>
-      <h1>Artisan Name</h1>
-<h1>Artisian Name</h1>
-            <div className="product_card">
-                <h2>Product Name</h2>
-                <Image src="/placeholder.png" alt={"Product picture"} width={300}
-  height={200}/>
-                <h3>description</h3>
-                <p>...</p>
-                <p>Price: $</p>
-            </div>
+      
       {/* Filters */}
       <h2>Filter Products</h2>
       <ProductFilters filters={filters} setFilters={setFilters} />
