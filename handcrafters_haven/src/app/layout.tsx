@@ -33,10 +33,9 @@ export default function RootLayout({
           <h1>Handcrafter's Haven</h1>
           <nav>
             <a href="/" className="button">Home</a>
-            <a href="/about" className="button">About Us</a>
             <a href="/products" className="button">Products</a>
-            <a href="/contact" className="button">Contact</a>
             <a href="/account" className="button">Account</a>
+            <a href="/cart" className="button">Cart</a>
           </nav>
         </header>
         {children}
