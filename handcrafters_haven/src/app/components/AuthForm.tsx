@@ -65,10 +65,13 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
         throw new Error("Email already registered");
       }
 
-      // Insert new account
+      // Hash the password before storing
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      // Insert new account with hashed password
       const { data, error } = await supabase
         .from("account")
-        .insert([{ email, password, name }])
+        .insert([{ email, password: hashedPassword, name }])
         .select()
         .single();
 
