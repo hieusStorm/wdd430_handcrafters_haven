@@ -32,11 +32,10 @@ export default function RootLayout({
           <img src="/hh.PNG" alt="Handcrafter's Haven Logo" />
           <h1>Handcrafter's Haven</h1>
           <nav>
-            <a href="/">Home</a>
-            <a href="/about">About Us</a>
-            <a href="/products">Products</a>
-            <a href="/contact">Contact</a>
-            <a href="/account">Account</a>
+            <a href="/" className="button">Home</a>
+            <a href="/products" className="button">Products</a>
+            <a href="/account" className="button">Account</a>
+            <a href="/cart" className="button">Cart</a>
           </nav>
         </header>
         {children}
