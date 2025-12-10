@@ -9,9 +9,7 @@ export default function AddCartButton(props: { value: string }) {
         currentCartArray.push(value);
         localStorage.setItem("cart_items", JSON.stringify(currentCartArray));
     }
-    document.getElementById(value)?.addEventListener("click", addItem);
-
     return (
-        <button className="shop-button" id={value}>🛒</button>
+        <button className="shop-button" onClick={addItem}>🛒</button>
     )
 }
