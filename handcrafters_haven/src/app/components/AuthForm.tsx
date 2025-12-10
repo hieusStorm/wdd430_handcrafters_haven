@@ -117,7 +117,7 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
           />
         </div>
 
-        <button type="submit" className="submit-btn">
+        <button type="submit" className="shop-button">
           {isSignUp ? "Sign Up" : "Sign In"}
         </button>
       </form>
@@ -130,7 +130,7 @@ export default function AuthForm({ onAuthSuccess }: AuthFormProps) {
             setError("");
             setMessage("");
           }}
-          className="toggle-btn"
+          className="shop-button"
         >
           {isSignUp ? "Sign In" : "Sign Up"}
         </button>
