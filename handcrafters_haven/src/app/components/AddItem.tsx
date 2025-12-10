@@ -19,13 +19,20 @@ export default function AddItem() {
     setLoading(true);
 
     try {
+      // Get the current user from localStorage
+      const storedUser = localStorage.getItem("user");
+      if (!storedUser) {
+        throw new Error("You must be logged in to add items");
+      }
+      const user = JSON.parse(storedUser);
+
       // Validate price is a number
       const priceNum = parseFloat(price);
       if (isNaN(priceNum) || priceNum < 0) {
         throw new Error("Please enter a valid price");
       }
 
-      // Insert new item into the items table
+      // Insert new item into the items table WITH account id
       const { data, error } = await supabase
         .from("items")
         .insert([
@@ -34,6 +41,7 @@ export default function AddItem() {
             description: description.trim(),
             price: priceNum,
             image: imageUrl.trim() || null,
+            account: user.id,
           },
         ])
         .select()

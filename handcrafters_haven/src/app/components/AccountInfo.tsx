@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from "../../lib/supabaseClient";
 
 interface AccountInfoProps {
   user: any;
@@ -9,6 +10,30 @@ interface AccountInfoProps {
 export default function AccountInfo({ user }: AccountInfoProps) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [items, setItems] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch items created by this user
+    const fetchUserItems = async () => {
+      try {
+        const { data, error } = await supabase
+          .from("items")
+          .select("*")
+          .eq("account", user.id)
+          .order("created_at", { ascending: false });
+
+        if (error) throw error;
+        setItems(data || []);
+      } catch (err: any) {
+        setError(err.message || "Error loading items");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserItems();
+  }, [user.id]);
 
   const handleSignOut = () => {
     localStorage.removeItem("user");
@@ -33,10 +58,22 @@ export default function AccountInfo({ user }: AccountInfoProps) {
       </div>
 
       <div className="account_orders">
-        <h2>Order History</h2>
-        <ul>
-          <li>No orders yet</li>
-        </ul>
+        <h2>My Items</h2>
+        {loading ? (
+          <p>Loading items...</p>
+        ) : items.length > 0 ? (
+          <ul>
+            {items.map((item) => (
+              <li key={item.id}>
+                <strong>{item.name}</strong> - ${item.price}
+                <br />
+                <small>{item.description}</small>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No items yet</p>
+        )}
       </div>
 
       {message && <p className="success_message">{message}</p>}
