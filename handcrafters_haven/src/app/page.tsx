@@ -72,14 +72,14 @@ export default function Home() {
       <h2>Reviews</h2>
       <p>See what our customers are saying about us!</p>
       <form onSubmit={submitReview} style={{ marginBottom: "20px" }}>
-        <input
+        <label><input
           type="text"
           value={newReview}
           onChange={(e) => setNewReview(e.target.value)}
           placeholder="Write a review..."
           style={{ width: "300px", marginRight: "10px" }}
-        />
-        <button type="submit">Submit Review</button>
+        /></label>
+        <button type="submit" className="shop-button">Submit Review</button>
       </form>
 
       {reviews.length > 0 ? (
