@@ -8,12 +8,19 @@
 
 html,
 body {
+  height: 100%;
   max-width: 100vw;
   overflow-x: hidden;
   color: black;
   background-color: white;
   font-family: sans-serif;
 
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,h2,h3,h4,h5 {
@@ -26,6 +33,7 @@ header{
   grid-template-rows: auto auto;
   padding: 1%;
   display: grid;
+  width: 100%;
 }
 
 header nav{
@@ -38,10 +46,12 @@ header img {
   width: 94px;
 }
 
+main {
+  flex: 1;
+}
+
 footer{
   background-color: #469ee9;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   padding: 20px;
   text-align: center;
