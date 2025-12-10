@@ -17,15 +17,16 @@ export default function AccountInfo({ user }: AccountInfoProps) {
     // Fetch items created by this user
     const fetchUserItems = async () => {
       try {
+
         const { data, error } = await supabase
           .from("items")
           .select("*")
-          .eq("account", user.id)
-          .order("created_at", { ascending: false });
-
+          .eq("account", user.id);
+          
         if (error) throw error;
         setItems(data || []);
       } catch (err: any) {
+
         setError(err.message || "Error loading items");
       } finally {
         setLoading(false);
@@ -52,7 +53,7 @@ export default function AccountInfo({ user }: AccountInfoProps) {
         <h2>Account Information</h2>
         <p><strong>Name:</strong> {user.name || "N/A"}</p>
         <p><strong>Email:</strong> {user.email}</p>
-        <button onClick={handleSignOut} className="sign_button">
+        <button onClick={handleSignOut} className="shop-button">
           Sign Out
         </button>
       </div>
